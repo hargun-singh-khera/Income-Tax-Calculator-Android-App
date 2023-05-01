@@ -236,7 +236,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="SN"
+                                android:text="S"
                                 android:textAlignment="textStart"
                                 android:textColor="@color/black"
                                 android:textSize="17sp"
@@ -331,6 +331,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="textEnd"
+                                android:layout_marginEnd="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:layout_marginTop="-5dp"
@@ -381,6 +382,7 @@
                                 android:id="@+id/taxableSalaryValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
                                 android:textAlignment="textEnd"
                                 android:padding="10dp"
                                 android:layout_marginTop="-5dp"
@@ -545,6 +547,7 @@
                                 android:textAlignment="textEnd"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
+                                android:layout_marginEnd="10dp"
                                 android:textSize="17sp"
                                 android:text="" />
                         </TableRow>
@@ -898,7 +901,7 @@
                         android:paddingStart="10dp"
                         android:layout_alignParentRight="true"
                         android:textAlignment="textEnd"
-                        android:layout_marginEnd="30dp"
+                        android:layout_marginEnd="33dp"
                         android:textSize="17sp"
                         android:textStyle="bold"/>
                 </RelativeLayout>

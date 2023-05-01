@@ -86,7 +86,7 @@ class MainActivity6 : AppCompatActivity() {
     fun shareApp() {
         val intent = Intent(Intent.ACTION_SEND)
         intent.setType("text/plain")
-        intent.putExtra(Intent.EXTRA_TEXT,"https://drive.google.com/file/d/1w2qX_xCYExfOx-o8JAylNin2RWUo5MJv/view?usp=sharing")
+        intent.putExtra(Intent.EXTRA_TEXT,"https://drive.google.com/file/d/1PVUgFS6D2HEx4uCizyB2SSgncjNRX2uX/view?usp=share_link")
         startActivity(Intent.createChooser(intent, "Share Link!"))
     }
 

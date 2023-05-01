@@ -46,9 +46,9 @@ class HomeFragment : Fragment() {
     lateinit var standardDeductionValue:TextView
     lateinit var taxableSalaryValue:TextView
     lateinit var taxableIncomeValue:TextView
-    lateinit var housePropertyIncomeValue:TextView
-    lateinit var businessProfessionIncomeValue:TextView
-    lateinit var otherSourcesIncomeValue:TextView
+    lateinit var housePropertyIncomeValue:EditText
+    lateinit var businessProfessionIncomeValue:EditText
+    lateinit var otherSourcesIncomeValue:EditText
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -234,16 +234,18 @@ class HomeFragment : Fragment() {
 
     fun taxIncomeCalculation() {
         salaryValue.addTextChangedListener {
-//            Toast.makeText(activity, "Inside Salary Value", Toast.LENGTH_SHORT).show()
-            if (salaryValue.text.toString().isNullOrEmpty()) {
+            if (salaryValue.text.toString().isEmpty()) {
                 salary=0
-                salaryValue.setText(salary.toString())
+                salaryValue.text.clear()
+                standardDeductionValue.setText("")
+                taxableSalaryValue.setText("")
             }
             else {
                 salary = salaryValue.text.toString().toInt()
                 if (salary <= 50000) {
                     standardDeduction = salary
-                } else {
+                }
+                else {
                     standardDeduction = 50000
                 }
                 taxableSalary = salary - standardDeduction
@@ -255,10 +257,9 @@ class HomeFragment : Fragment() {
         }
 
         housePropertyIncomeValue.addTextChangedListener {
-//            Toast.makeText(activity, "House Prop Income Value", Toast.LENGTH_SHORT).show()
             if (housePropertyIncomeValue.text.toString().isEmpty()) {
                 housePropertyIncome=0
-                housePropertyIncomeValue.setText(housePropertyIncome.toString())
+                housePropertyIncomeValue.text.clear()
             }
             else {
                 housePropertyIncome=housePropertyIncomeValue.text.toString().toInt()
@@ -268,10 +269,9 @@ class HomeFragment : Fragment() {
         }
 
         businessProfessionIncomeValue.addTextChangedListener {
-//            Toast.makeText(activity, "Inside Business/Prof Value", Toast.LENGTH_SHORT).show()
             if (businessProfessionIncomeValue.text.toString().isEmpty()) {
                 businessProfessionIncome=0
-                businessProfessionIncomeValue.setText(businessProfessionIncome.toString())
+                businessProfessionIncomeValue.text.clear()
             }
             else {
                 businessProfessionIncome=businessProfessionIncomeValue.text.toString().toInt()
@@ -281,10 +281,9 @@ class HomeFragment : Fragment() {
         }
 
         otherSourcesIncomeValue.addTextChangedListener {
-//            Toast.makeText(activity, "Inside Other Sources Value", Toast.LENGTH_SHORT).show()
             if (otherSourcesIncomeValue.text.toString().isEmpty()) {
                 otherSourcesIncome=0
-                otherSourcesIncomeValue.setText(otherSourcesIncome.toString())
+                otherSourcesIncomeValue.text.clear()
             }
             else {
                 otherSourcesIncome=otherSourcesIncomeValue.text.toString().toInt()
@@ -301,7 +300,7 @@ class HomeFragment : Fragment() {
         val notificationBuilder = NotificationCompat.Builder(requireActivity(), channelId)
             .setContentTitle("Billzio")
             .setContentText(message)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setSmallIcon(R.drawable.logo)
             .setStyle(NotificationCompat.BigTextStyle())
             .build()
