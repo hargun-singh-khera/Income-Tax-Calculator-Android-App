@@ -79,7 +79,7 @@ class MainActivity6 : AppCompatActivity() {
 
     fun openGitHub() {
         val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse("https://www.github.com"))
+        intent.setData(Uri.parse("https://github.com/hargun-singh-khera/Income-Tax-Calculator-Android-App"))
         startActivity(intent)
     }
 
