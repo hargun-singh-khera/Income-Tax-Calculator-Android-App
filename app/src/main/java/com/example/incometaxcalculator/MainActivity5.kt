@@ -19,6 +19,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.postDelayed
 import com.google.android.material.snackbar.Snackbar
 import org.w3c.dom.Text
 import java.util.Calendar
@@ -63,7 +64,6 @@ class MainActivity5 : AppCompatActivity() {
 
         userDOB.setOnClickListener {
             showDatePicker()
-
         }
 
         btnLetsGetStarted.setOnClickListener {
@@ -107,19 +107,40 @@ class MainActivity5 : AppCompatActivity() {
         }
         else {
             if (checkRadioButtonSelectedOrNot()) {
-                saveUserDetails()
-                loggingTextView.setText("Creating your account...")
-                progressBar.visibility= View.VISIBLE
-                Handler(Looper.getMainLooper()).postDelayed({
-                    loggingTextView.setText("Redirecting...")
-                    progressBar.visibility=View.INVISIBLE
-                    val intent = Intent(this, MainActivity4::class.java)
-                    startActivity(intent)
-                },2000)
+                sharedPreferences = getSharedPreferences(fileName, Context.MODE_PRIVATE)
+                val email = sharedPreferences.getString("Email", "").toString()
+                if (userEmail.text.toString().equals(email)) {
+                    loggingTextView.setText("Creating your account...")
+                    progressBar.visibility= View.VISIBLE
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        loggingTextView.setText("An account with this email already exists!")
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            loggingTextView.setText("Redirecting...")
+                        },4000)
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val intent = Intent(this, MainActivity4::class.java)
+                            startActivity(intent)
+                        },4000)
+                        progressBar.visibility=View.INVISIBLE
+                    },1500)
+                }
+                else {
+                    saveUserDetails()
+                    loggingTextView.setText("Creating your account...")
+                    progressBar.visibility = View.VISIBLE
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        loggingTextView.setText("Redirecting...")
+                        progressBar.visibility = View.INVISIBLE
+                        val intent = Intent(this, MainActivity4::class.java)
+                        startActivity(intent)
+                    }, 2000)
+                }
             }
 
         }
     }
+
+
 
     fun saveUserDetails() {
         val userName = userName.text.toString()

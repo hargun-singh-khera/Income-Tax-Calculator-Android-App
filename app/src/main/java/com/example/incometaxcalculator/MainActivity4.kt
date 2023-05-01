@@ -53,7 +53,7 @@ class MainActivity4 : AppCompatActivity() {
                 progressBar.visibility= View.VISIBLE
                 Handler(Looper.getMainLooper()).postDelayed({
                     loggingTextView.setText("Checking your credentials...")
-                },500)
+                },800)
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (userAuthenticate()) {
                         loggingTextView.setText("Logging you in...")

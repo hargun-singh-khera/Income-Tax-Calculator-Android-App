@@ -2,6 +2,7 @@ package com.example.incometaxcalculator
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
