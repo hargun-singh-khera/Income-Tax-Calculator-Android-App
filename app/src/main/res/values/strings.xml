@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Billzio</string>
+    <string name="app_heading">Income \nTax \nCalculator</string>
+    <string name="terms_and_conditions">By creating an account, you agree to our <u><font color='#33CAFF'>Terms &amp; Conditions</font></u> and agree to <u><font color='#33CAFF'>Privacy Policy</font></u></string>
+    <string name="tax_slab_1">&lt;=3,00,000</string>
+    <string name="tax_slab_2">&gt;3,00,000 &amp; &lt;=6,00,000</string>
+    <string name="tax_slab_3">&gt;6,00,000 &amp; &lt;=9,00,000</string>
+    <string name="tax_slab_4">&gt;9,00,000 &amp; &lt;=12,00,000</string>
+    <string name="tax_slab_5">&gt;12,00,000 &amp; &lt;=15,00,000</string>
+    <string name="tax_slab_6">&gt;15,00,000</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
